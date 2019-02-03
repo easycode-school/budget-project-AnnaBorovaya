@@ -1,0 +1,12 @@
+.container {
+    width: 1000px;
+    margin: 60px auto;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
