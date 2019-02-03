@@ -1,0 +1,19 @@
+<app-total [totalValueExpense]='valuesExpense' [totalValueIncome]='valuesIncome'></app-total>
+
+<div class="bottom">
+    <form class="add" (ngSubmit)="onSubmitHandler(user)" #user='ngForm'>
+    <div class="add__container">
+        <select [(ngModel)]='sign' name='sign' (click)="onClickSelect($event)"  [ngClass] = '{red: minus}' class="add__type">
+            <option value="income" >+</option>
+            <option value="expense" >-</option>
+        </select>
+        <input [ngClass] = '{red: minus}'[(ngModel)]='someValue.text' name='text' type="text" class="add__description" placeholder="Add description" required>
+        <input [ngClass] = '{red: minus}'[(ngModel)]='someValue.number' name='number' type="number" class="add__value" placeholder="Value" required>
+        <button [disabled]='user.invalid' [ngClass] = '{red: minus}' class="add__btn"><i class="ion-ios-checkmark-outline"></i></button>
+    </div>
+    </form>
+    <div class="container clearfix">
+        <app-expenses [data] = 'valuesExpense'(idExpense)='onClickButtonDelete($event)'></app-expenses>
+        <app-income [data] = 'valuesIncome' (idIncome)='onClickButtonDelete($event)'></app-income>
+    </div>
+</div>
